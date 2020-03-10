@@ -12,18 +12,40 @@ class TimatoViewController: NSViewController {
     
     var timer = Timer()
     var timerIsRunning = false
-    var workTime = 45
+    var workMinutes = 45
+    var restMinutes = 15
+    var workTime = 0
+    var restTime = 0
+    var level = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        workTime = workMinutes * 60
+        restTime = restMinutes * 60
         bonsaiImage.image = NSImage(named: "TimatoBonsai_0")
+        timerLabel.stringValue = workTimetostring(worktime: (workTime))
+        labelStatus.stringValue = ("Start Working!")
     }
-    
+    //label sopra al timer indica work/rest/pause
+    @IBOutlet weak var labelStatus: NSTextField!
     //label del timer
     @IBOutlet weak var timerLabel: NSTextField!
     //immagine bonsai
     @IBOutlet weak var bonsaiImage: NSImageView!
+    
+    //funzioni per aggiornare tempo dalle impostazioni
+    public func setRest(r : Int){
+        restMinutes = r
+        print(restMinutes)
+    }
+    public func setWork(w : Int){
+        timerIsRunning = false
+        workMinutes = w
+        print(workMinutes)
+        timer.invalidate()
+        workTime = workMinutes * 60
+    }
     
 }
 
@@ -50,37 +72,43 @@ extension TimatoViewController {
     
     //azione inizio timer
     @IBAction func playBtn(_ sender: Any) {
-        print("play")
+        if timerIsRunning == false {
+            runTimer()
+        }
         timerIsRunning = true
-        runTimer()
+        labelStatus.stringValue = ("Keep Working!")
     }
     
     //azione pausa timer
     @IBAction func pauseBtn(_ sender: Any) {
-        print("pause")
-        //stoppa il timer ma non lo resetta
+        //invalidate stoppa il timer ma non lo resetta
         timer.invalidate()
+        labelStatus.stringValue = ("Mhm, have a rest...")
         timerIsRunning = false
     }
     
-    //azione pausa timer
-    @IBAction func settingsBtn(_ sender: Any) {
-        
+    //azione reset timer
+    @IBAction func resetBtn(_ sender: Any) {
+        timer.invalidate()
+        workTime = workMinutes * 60
+        timerLabel.stringValue = workTimetostring(worktime: (workTime))
+        labelStatus.stringValue = ("Start Working!")
+        timerIsRunning = false
     }
     
-    //azione pausa timer
+    //azione quit
     @IBAction func quitBtn(_ sender: Any) {
-       
+        NSApplication.shared.terminate(sender)
     }
     
-    //azione pausa timer
+    //azione more info
     @IBAction func infoBtn(_ sender: Any) {
         
     }
 }
 
 extension TimatoViewController {
-    // MARK: funzioni timer
+    // MARK: funzioni accessorie timer
     
     //schedula un thread che si occupa di chiamare onti timeInterval (in secondi) il metodo updateTimer definito in questa classe
     func runTimer() {
@@ -89,6 +117,12 @@ extension TimatoViewController {
     
     @objc func updateTimer(){
         workTime -= 1
-        timerLabel.insertText("\(workTime)")
+        timerLabel.stringValue = workTimetostring(worktime: (workTime))
+    }
+    
+    func workTimetostring(worktime:Int) -> String{
+        let minutes = Int(worktime) / 60 % 60
+        let seconds = Int(worktime) % 60
+        return String(format:"%02i:%02i", minutes, seconds)
     }
 }

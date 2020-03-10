@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D277C272416646C00B8B593 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D277C262416646C00B8B593 /* SettingsViewController.swift */; };
+		6D277C292417B00D00B8B593 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D277C282417B00D00B8B593 /* InfoViewController.swift */; };
 		6D67ECAB23FDEE1600E578A3 /* TimatoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D67ECAA23FDEE1600E578A3 /* TimatoViewController.swift */; };
 		6DD5DCFE23EDB1910070CFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD5DCFD23EDB1910070CFB3 /* AppDelegate.swift */; };
 		6DD5DD0523EDB1920070CFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DD5DD0323EDB1920070CFB3 /* Main.storyboard */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D277C262416646C00B8B593 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6D277C282417B00D00B8B593 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		6D67ECAA23FDEE1600E578A3 /* TimatoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimatoViewController.swift; sourceTree = "<group>"; };
 		6DD5DCFA23EDB1910070CFB3 /* Timato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DD5DCFD23EDB1910070CFB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,9 +58,11 @@
 			isa = PBXGroup;
 			children = (
 				6D67ECAA23FDEE1600E578A3 /* TimatoViewController.swift */,
+				6D277C282417B00D00B8B593 /* InfoViewController.swift */,
 				6DD5DCFD23EDB1910070CFB3 /* AppDelegate.swift */,
 				6DEC71392405357A001A7312 /* Assets.xcassets */,
 				6DD5DD0323EDB1920070CFB3 /* Main.storyboard */,
+				6D277C262416646C00B8B593 /* SettingsViewController.swift */,
 				6DD5DD0623EDB1920070CFB3 /* Info.plist */,
 				6DD5DD0723EDB1920070CFB3 /* Timato.entitlements */,
 			);
@@ -135,6 +141,8 @@
 			files = (
 				6D67ECAB23FDEE1600E578A3 /* TimatoViewController.swift in Sources */,
 				6DD5DCFE23EDB1910070CFB3 /* AppDelegate.swift in Sources */,
+				6D277C292417B00D00B8B593 /* InfoViewController.swift in Sources */,
+				6D277C272416646C00B8B593 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
