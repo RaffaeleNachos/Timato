@@ -28,7 +28,7 @@ class TimatoViewController: NSViewController, setTings{
         // Do view setup here.
         workTime = workMinutes * 60
         restTime = restMinutes * 60
-        bonsaiImage.image = NSImage(named: "TimatoBonsai_0")
+        bonsaiImage.image = NSImage(named: "TimatoBonsai_8")
         timerLabel.stringValue = workTimetostring(worktime: (workTime))
         labelStatus.stringValue = ("Start Working!")
     }
