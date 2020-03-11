@@ -59,10 +59,10 @@
 			children = (
 				6D67ECAA23FDEE1600E578A3 /* TimatoViewController.swift */,
 				6D277C282417B00D00B8B593 /* InfoViewController.swift */,
+				6D277C262416646C00B8B593 /* SettingsViewController.swift */,
 				6DD5DCFD23EDB1910070CFB3 /* AppDelegate.swift */,
 				6DEC71392405357A001A7312 /* Assets.xcassets */,
 				6DD5DD0323EDB1920070CFB3 /* Main.storyboard */,
-				6D277C262416646C00B8B593 /* SettingsViewController.swift */,
 				6DD5DD0623EDB1920070CFB3 /* Info.plist */,
 				6DD5DD0723EDB1920070CFB3 /* Timato.entitlements */,
 			);

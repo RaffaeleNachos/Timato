@@ -12,22 +12,19 @@ class SettingsViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
     }
+    
+    weak var delegate:TimatoViewController!
+    
     @IBOutlet weak var fieldWorkMinutes: NSTextField!
     @IBOutlet weak var fieldRestMinutes: NSTextField!
     
     @IBAction func setRest(_ sender: Any) {
-        if !fieldRestMinutes.stringValue.isEmpty {
-            let r = fieldRestMinutes.integerValue
-            TimatoViewController().setRest(r: r)
-        }
+        delegate.setRestMinutes(rm: fieldRestMinutes.integerValue)
     }
     
     @IBAction func setWork(_ sender: Any) {
-        if !fieldWorkMinutes.stringValue.isEmpty {
-            let w = fieldWorkMinutes.integerValue
-            TimatoViewController().setWork(w: w)
-        }
+        delegate.setWorkMinutes(wm: fieldWorkMinutes.integerValue)
     }
+    
 }

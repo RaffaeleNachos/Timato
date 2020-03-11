@@ -8,8 +8,13 @@
 
 import Cocoa
 
-class TimatoViewController: NSViewController {
-    
+//decoupling is the key
+protocol setTings{
+    func setWorkMinutes(wm: Int)
+    func setRestMinutes(rm: Int)
+}
+
+class TimatoViewController: NSViewController, setTings{
     var timer = Timer()
     var timerIsRunning = false
     var workMinutes = 45
@@ -34,18 +39,23 @@ class TimatoViewController: NSViewController {
     //immagine bonsai
     @IBOutlet weak var bonsaiImage: NSImageView!
     
-    //funzioni per aggiornare tempo dalle impostazioni
-    public func setRest(r : Int){
-        restMinutes = r
-        print(restMinutes)
-    }
-    public func setWork(w : Int){
-        timerIsRunning = false
-        workMinutes = w
-        print(workMinutes)
+    //funzioni chiamate dal view controller delle impostazioni per cambiare i valori del work e rest minutes
+    func setWorkMinutes(wm: Int) {
         timer.invalidate()
+        timerIsRunning = false
+        workMinutes = wm
         workTime = workMinutes * 60
+        timerLabel.stringValue = workTimetostring(worktime: (workTime))
     }
+    
+    func setRestMinutes(rm: Int) {
+        restMinutes = rm
+    }
+    
+    //popover per settingsviewcontroller
+    let popover = NSPopover()
+    
+    @IBOutlet weak var settingsBtnOutlet: NSButton!
     
 }
 
@@ -60,7 +70,7 @@ extension TimatoViewController {
         //istanzia il controller
         //guard + fatal error
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? TimatoViewController else {
-            fatalError("Why cant i find QuotesViewController? - Check Main.storyboard")
+            fatalError("Why cant i find it? - Check Main.storyboard")
         }
         return viewcontroller
     }
@@ -101,9 +111,27 @@ extension TimatoViewController {
         NSApplication.shared.terminate(sender)
     }
     
-    //azione more info
+    //azione more info e settings
     @IBAction func infoBtn(_ sender: Any) {
         
+    }
+    
+    //apertura della view delle impostazioni
+    @IBAction func settingsBtn(_ sender: Any) {
+        if popover.isShown {
+            popover.performClose(sender)
+        } else {
+            //ottengo la reference della StoryBoard
+            let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+            //crea identificatore che combacia con quello settato nella storyboard
+            let identifier = NSStoryboard.SceneIdentifier("SettingsViewController")
+            //istanzia il controller
+            //guard + fatal error
+            let viewsetcontroller = storyboard.instantiateController(withIdentifier: identifier) as? SettingsViewController
+            viewsetcontroller?.delegate = self
+            popover.contentViewController = viewsetcontroller
+            popover.show(relativeTo: settingsBtnOutlet.bounds, of: settingsBtnOutlet, preferredEdge: NSRectEdge.minY)
+        }
     }
 }
 
@@ -117,6 +145,7 @@ extension TimatoViewController {
     
     @objc func updateTimer(){
         workTime -= 1
+        print(level)
         timerLabel.stringValue = workTimetostring(worktime: (workTime))
     }
     
@@ -125,4 +154,5 @@ extension TimatoViewController {
         let seconds = Int(worktime) % 60
         return String(format:"%02i:%02i", minutes, seconds)
     }
+    
 }
