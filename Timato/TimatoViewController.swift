@@ -21,15 +21,19 @@ class TimatoViewController: NSViewController, setTings{
     var restMinutes = 15
     var workTime = 0
     var restTime = 0
-    var level = 0
+    var level = 5
+    //tmode = true WORK
+    //tmode = false REST
+    var tmode = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         workTime = workMinutes * 60
         restTime = restMinutes * 60
-        bonsaiImage.image = NSImage(named: "TimatoBonsai_8")
-        timerLabel.stringValue = workTimetostring(worktime: (workTime))
+        bonsaiImage.image = NSImage(named: "TimatoBonsai_1")
+        timerLabel.stringValue = timerTimetostring(worktime: (workTime))
         labelStatus.stringValue = ("Start Working!")
     }
     //label sopra al timer indica work/rest/pause
@@ -41,15 +45,23 @@ class TimatoViewController: NSViewController, setTings{
     
     //funzioni chiamate dal view controller delle impostazioni per cambiare i valori del work e rest minutes
     func setWorkMinutes(wm: Int) {
-        timer.invalidate()
-        timerIsRunning = false
         workMinutes = wm
         workTime = workMinutes * 60
-        timerLabel.stringValue = workTimetostring(worktime: (workTime))
+        if (tmode) {
+            timer.invalidate()
+            timerIsRunning = false
+            timerLabel.stringValue = timerTimetostring(worktime: (workTime))
+        }
     }
     
     func setRestMinutes(rm: Int) {
         restMinutes = rm
+        restTime = restMinutes * 60
+        if (!tmode){
+            timer.invalidate()
+            timerIsRunning = false
+            timerLabel.stringValue = timerTimetostring(worktime: (restTime))
+        }
     }
     
     //popover per settingsviewcontroller
@@ -86,34 +98,40 @@ extension TimatoViewController {
             runTimer()
         }
         timerIsRunning = true
-        labelStatus.stringValue = ("Keep Working!")
+        if (tmode){
+            labelStatus.stringValue = ("Keep Working!")
+        } else {
+            labelStatus.stringValue = ("Take a looong rest...")
+        }
     }
     
     //azione pausa timer
     @IBAction func pauseBtn(_ sender: Any) {
         //invalidate stoppa il timer ma non lo resetta
         timer.invalidate()
-        labelStatus.stringValue = ("Mhm, have a rest...")
+        labelStatus.stringValue = ("Mhm, have a short break...")
         timerIsRunning = false
     }
     
     //azione reset timer
     @IBAction func resetBtn(_ sender: Any) {
         timer.invalidate()
-        workTime = workMinutes * 60
-        timerLabel.stringValue = workTimetostring(worktime: (workTime))
-        labelStatus.stringValue = ("Start Working!")
-        timerIsRunning = false
+        if (tmode){
+            workTime = workMinutes * 60
+            timerLabel.stringValue = timerTimetostring(worktime: (workTime))
+            labelStatus.stringValue = ("Start Working!")
+            timerIsRunning = false
+        } else {
+            restTime = restMinutes * 60
+            timerLabel.stringValue = timerTimetostring(worktime: (restTime))
+            labelStatus.stringValue = ("Take a looong break...")
+            timerIsRunning = false
+        }
     }
     
     //azione quit
     @IBAction func quitBtn(_ sender: Any) {
         NSApplication.shared.terminate(sender)
-    }
-    
-    //azione more info e settings
-    @IBAction func infoBtn(_ sender: Any) {
-        
     }
     
     //apertura della view delle impostazioni
@@ -144,12 +162,30 @@ extension TimatoViewController {
     }
     
     @objc func updateTimer(){
-        workTime -= 1
-        print(level)
-        timerLabel.stringValue = workTimetostring(worktime: (workTime))
+        if (tmode){
+            workTime -= 1
+            if (workTime <= 0){
+                tmode = !tmode
+                if level < 9 {
+                    level += 1
+                }
+                bonsaiImage.image = NSImage(named: "TimatoBonsai_\(level)")
+                resetBtn(self)
+                runTimer()
+            }
+            timerLabel.stringValue = timerTimetostring(worktime: (workTime))
+        } else {
+            restTime -= 1
+            if (restTime <= 0){
+                tmode = !tmode
+                resetBtn(self)
+                runTimer()
+            }
+            timerLabel.stringValue = timerTimetostring(worktime: (restTime))
+        }
     }
     
-    func workTimetostring(worktime:Int) -> String{
+    func timerTimetostring(worktime:Int) -> String{
         let minutes = Int(worktime) / 60 % 60
         let seconds = Int(worktime) % 60
         return String(format:"%02i:%02i", minutes, seconds)
