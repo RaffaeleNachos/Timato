@@ -288,7 +288,7 @@
 				CODE_SIGN_ENTITLEMENTS = Timato/Timato.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = Timato/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,7 +309,7 @@
 				CODE_SIGN_ENTITLEMENTS = Timato/Timato.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = Timato/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

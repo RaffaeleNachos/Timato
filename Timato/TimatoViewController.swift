@@ -179,6 +179,10 @@ extension TimatoViewController {
             workTime -= 1
             if (workTime <= 0){
                 if notificationsEnabled {
+                    //devo settare un id sempre diverso altrimenti la notifica non viene fatta vedere!
+                    let date = Date()
+                    tnotifcations.setRestID(id: "restnot \(date)")
+                    //print("\(String(describing: tnotifcations.restnotification.identifier))")
                     NSUserNotificationCenter.default.deliver(tnotifcations.restnotification)
                 }
                 tmode = !tmode
@@ -194,6 +198,9 @@ extension TimatoViewController {
             restTime -= 1
             if (restTime <= 0){
                 if notificationsEnabled {
+                    let date = Date()
+                    tnotifcations.setWorkID(id: "worknot \(date)")
+                    //print("\(String(describing: tnotifcations.worknotification.identifier))")
                     NSUserNotificationCenter.default.deliver(tnotifcations.worknotification)
                 }
                 tmode = !tmode

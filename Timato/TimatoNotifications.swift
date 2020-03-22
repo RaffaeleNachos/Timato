@@ -14,16 +14,21 @@ class TimatoNotifications {
     let restnotification = NSUserNotification()
     
     init(){
-        worknotification.identifier = "worknotify"
+        
         worknotification.title = "Timato"
         worknotification.subtitle = "Hey! You must work NOW!"
-        //worknotification.contentImage = NSImage(named: "AppIcon")
         worknotification.soundName = NSUserNotificationDefaultSoundName
         
-        restnotification.identifier = "restnotify"
         restnotification.title = "Timato"
         restnotification.subtitle = "Hey! You can have a nap :)"
-        //worknotification.contentImage = NSImage(named: "AppIcon")
         restnotification.soundName = NSUserNotificationDefaultSoundName
+    }
+    
+    func setWorkID(id: String){
+        worknotification.identifier = id
+    }
+    
+    func setRestID(id: String){
+         restnotification.identifier = id
     }
 }
