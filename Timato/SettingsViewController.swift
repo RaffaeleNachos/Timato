@@ -18,6 +18,15 @@ class SettingsViewController: NSViewController {
     
     @IBOutlet weak var fieldWorkMinutes: NSTextField!
     @IBOutlet weak var fieldRestMinutes: NSTextField!
+    @IBOutlet weak var notificationCheckBox: NSButton!
+    
+    @IBAction func notificationOnOff(_ sender: NSButton) {
+        if sender.state == .on {
+            delegate.setNotificationsStatus(state: true)
+        } else {
+            delegate.setNotificationsStatus(state: false)
+        }
+    }
     
     @IBAction func setRest(_ sender: Any) {
         delegate.setRestMinutes(rm: fieldRestMinutes.integerValue)

@@ -859,6 +859,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="notificationOnOff:" target="yYC-ff-xOS" id="8Ow-Vd-ZVQ"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHU-tp-DSa">
                                 <rect key="frame" x="159" y="66" width="61" height="32"/>
@@ -887,6 +890,7 @@
                     <connections>
                         <outlet property="fieldRestMinutes" destination="sgB-W5-0ft" id="Dkj-0S-lIH"/>
                         <outlet property="fieldWorkMinutes" destination="TqI-Qb-6dz" id="6Pt-VA-zN0"/>
+                        <outlet property="notificationCheckBox" destination="Afc-Et-esV" id="iFf-P6-7Qz"/>
                     </connections>
                 </viewController>
                 <customObject id="mYF-m6-fRY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate{
 
     //crea l'icona della status bar
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
@@ -34,7 +34,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     strongSelf.closePopover(sender: event)
             }
         }
-
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -65,4 +64,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 }
-

@@ -25,10 +25,10 @@ class TimatoViewController: NSViewController, setTings{
     //tmode = true WORK
     //tmode = false REST
     var tmode = true
+    var notificationsEnabled = true
     
     //notifications
     var tnotifcations = TimatoNotifications()
-    let notificationCenter = NSUserNotificationCenter.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +65,11 @@ class TimatoViewController: NSViewController, setTings{
             timerIsRunning = false
             timerLabel.stringValue = timerTimetostring(worktime: (restTime))
         }
+    }
+    
+    //funzione per lo stato delle notifiche abilitate o non
+    func setNotificationsStatus(state: Bool) {
+        notificationsEnabled = state
     }
     
     //popover per settingsviewcontroller
@@ -152,6 +157,11 @@ extension TimatoViewController {
             viewsetcontroller?.delegate = self
             popover.contentViewController = viewsetcontroller
             popover.show(relativeTo: settingsBtnOutlet.bounds, of: settingsBtnOutlet, preferredEdge: NSRectEdge.minY)
+            if (notificationsEnabled) {
+                viewsetcontroller?.notificationCheckBox.state = .on
+            } else {
+                viewsetcontroller?.notificationCheckBox.state = .off
+            }
         }
     }
 }
@@ -168,7 +178,9 @@ extension TimatoViewController {
         if (tmode){
             workTime -= 1
             if (workTime <= 0){
-                notificationCenter.deliver(tnotifcations.restnotification)
+                if notificationsEnabled {
+                    NSUserNotificationCenter.default.deliver(tnotifcations.restnotification)
+                }
                 tmode = !tmode
                 if level < 9 {
                     level += 1
@@ -181,7 +193,9 @@ extension TimatoViewController {
         } else {
             restTime -= 1
             if (restTime <= 0){
-                notificationCenter.deliver(tnotifcations.worknotification)
+                if notificationsEnabled {
+                    NSUserNotificationCenter.default.deliver(tnotifcations.worknotification)
+                }
                 tmode = !tmode
                 resetBtn(self)
                 playBtn(self)
