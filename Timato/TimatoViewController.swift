@@ -21,18 +21,21 @@ class TimatoViewController: NSViewController, setTings{
     var restMinutes = 15
     var workTime = 0
     var restTime = 0
-    var level = 5
+    var level = 0
     //tmode = true WORK
     //tmode = false REST
     var tmode = true
     
+    //notifications
+    var tnotifcations = TimatoNotifications()
+    let notificationCenter = NSUserNotificationCenter.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         workTime = workMinutes * 60
         restTime = restMinutes * 60
-        bonsaiImage.image = NSImage(named: "TimatoBonsai_1")
+        bonsaiImage.image = NSImage(named: "TimatoBonsai_0")
         timerLabel.stringValue = timerTimetostring(worktime: (workTime))
         labelStatus.stringValue = ("Start Working!")
     }
@@ -124,7 +127,7 @@ extension TimatoViewController {
         } else {
             restTime = restMinutes * 60
             timerLabel.stringValue = timerTimetostring(worktime: (restTime))
-            labelStatus.stringValue = ("Take a looong break...")
+            labelStatus.stringValue = ("Take a looong rest...")
             timerIsRunning = false
         }
     }
@@ -165,21 +168,23 @@ extension TimatoViewController {
         if (tmode){
             workTime -= 1
             if (workTime <= 0){
+                notificationCenter.deliver(tnotifcations.restnotification)
                 tmode = !tmode
                 if level < 9 {
                     level += 1
                 }
                 bonsaiImage.image = NSImage(named: "TimatoBonsai_\(level)")
                 resetBtn(self)
-                runTimer()
+                playBtn(self)
             }
             timerLabel.stringValue = timerTimetostring(worktime: (workTime))
         } else {
             restTime -= 1
             if (restTime <= 0){
+                notificationCenter.deliver(tnotifcations.worknotification)
                 tmode = !tmode
                 resetBtn(self)
-                runTimer()
+                playBtn(self)
             }
             timerLabel.stringValue = timerTimetostring(worktime: (restTime))
         }
