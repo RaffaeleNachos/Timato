@@ -27,9 +27,12 @@ class EventMonitor {
     }
 
     public func stop() {
-      if monitor != nil {
+        guard monitor != nil else {
+            NSLog("No monitor found")
+            return
+        }
+    
         NSEvent.removeMonitor(monitor!)
         monitor = nil
-      }
     }
 }

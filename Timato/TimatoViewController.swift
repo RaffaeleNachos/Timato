@@ -7,14 +7,15 @@
 //
 
 import Cocoa
+import UserNotifications
 
 //decoupling is the key
-protocol setTings{
+protocol TimerValuesSetter{
     func setWorkMinutes(wm: Int)
     func setRestMinutes(rm: Int)
 }
 
-class TimatoViewController: NSViewController, setTings{
+class TimatoViewController: NSViewController, TimerValuesSetter{
     var timer = Timer()
     var timerIsRunning = false
     var workMinutes = 45
@@ -25,10 +26,18 @@ class TimatoViewController: NSViewController, setTings{
     //tmode = true WORK
     //tmode = false REST
     var tmode = true
-    var notificationsEnabled = true
+    var notificationsEnabled = false
     
     //notifications
     var tnotifcations = TimatoNotifications()
+    var notificationCenter = UNUserNotificationCenter.current()
+    
+    //label sopra al timer indica work/rest/pause
+    @IBOutlet weak var labelStatus: NSTextField!
+    //label del timer
+    @IBOutlet weak var timerLabel: NSTextField!
+    //immagine bonsai
+    @IBOutlet weak var bonsaiImage: NSImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +47,9 @@ class TimatoViewController: NSViewController, setTings{
         bonsaiImage.image = NSImage(named: "TimatoBonsai_0")
         timerLabel.stringValue = timerTimetostring(worktime: (workTime))
         labelStatus.stringValue = ("Start Working!")
+        settingsPopover.behavior = NSPopover.Behavior.transient
+        self.askForNotificationPermission()
     }
-    //label sopra al timer indica work/rest/pause
-    @IBOutlet weak var labelStatus: NSTextField!
-    //label del timer
-    @IBOutlet weak var timerLabel: NSTextField!
-    //immagine bonsai
-    @IBOutlet weak var bonsaiImage: NSImageView!
     
     //funzioni chiamate dal view controller delle impostazioni per cambiare i valori del work e rest minutes
     func setWorkMinutes(wm: Int) {
@@ -72,8 +77,33 @@ class TimatoViewController: NSViewController, setTings{
         notificationsEnabled = state
     }
     
+    func askForNotificationPermission(){
+        //ask for notifications auth, if not already auth
+        notificationCenter.getNotificationSettings { settings in
+            if (settings.authorizationStatus != .authorized){
+                self.notificationsEnabled = false
+                self.notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, err in
+                    guard err == nil else {
+                        NSLog("Request Auth for notifications failed: %@", err.debugDescription)
+                        return
+                    }
+                    
+                    if (granted){
+                        self.notificationsEnabled = true
+                        NSLog("Notifications authorized")
+                    } else {
+                        self.notificationsEnabled = false
+                        NSLog("Notifications not authorized")
+                    }
+                }
+            } else {
+                self.notificationsEnabled = true
+            }
+        }
+    }
+    
     //popover per settingsviewcontroller
-    let popover = NSPopover()
+    let settingsPopover = NSPopover()
     
     @IBOutlet weak var settingsBtnOutlet: NSButton!
     
@@ -144,8 +174,8 @@ extension TimatoViewController {
     
     //apertura della view delle impostazioni
     @IBAction func settingsBtn(_ sender: Any) {
-        if popover.isShown {
-            popover.performClose(sender)
+        if settingsPopover.isShown {
+            settingsPopover.performClose(sender)
         } else {
             //ottengo la reference della StoryBoard
             let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
@@ -153,14 +183,14 @@ extension TimatoViewController {
             let identifier = NSStoryboard.SceneIdentifier("SettingsViewController")
             //istanzia il controller
             //guard + fatal error
-            let viewsetcontroller = storyboard.instantiateController(withIdentifier: identifier) as? SettingsViewController
-            viewsetcontroller?.delegate = self
-            popover.contentViewController = viewsetcontroller
-            popover.show(relativeTo: settingsBtnOutlet.bounds, of: settingsBtnOutlet, preferredEdge: NSRectEdge.minY)
-            if (notificationsEnabled) {
-                viewsetcontroller?.notificationCheckBox.state = .on
+            if settingsPopover.contentViewController == nil {
+                if let settingsViewController = storyboard.instantiateController(withIdentifier: identifier) as? SettingsViewController {
+                    settingsViewController.delegate = self
+                    settingsPopover.contentViewController = settingsViewController
+                    settingsPopover.show(relativeTo: settingsBtnOutlet.bounds, of: settingsBtnOutlet, preferredEdge: NSRectEdge.minY)
+                }
             } else {
-                viewsetcontroller?.notificationCheckBox.state = .off
+                settingsPopover.show(relativeTo: settingsBtnOutlet.bounds, of: settingsBtnOutlet, preferredEdge: NSRectEdge.minY)
             }
         }
     }
@@ -178,12 +208,12 @@ extension TimatoViewController {
         if (tmode){
             workTime -= 1
             if (workTime <= 0){
-                if notificationsEnabled {
-                    //devo settare un id sempre diverso altrimenti la notifica non viene fatta vedere!
-                    let date = Date()
-                    tnotifcations.setRestID(id: "restnot \(date)")
-                    //print("\(String(describing: tnotifcations.restnotification.identifier))")
-                    NSUserNotificationCenter.default.deliver(tnotifcations.restnotification)
+                if (notificationsEnabled){
+                    notificationCenter.add(tnotifcations.requestForRestNotirication()) { err in
+                        guard err == nil else {
+                            return
+                        }
+                    }
                 }
                 tmode = !tmode
                 if level < 9 {
@@ -197,11 +227,12 @@ extension TimatoViewController {
         } else {
             restTime -= 1
             if (restTime <= 0){
-                if notificationsEnabled {
-                    let date = Date()
-                    tnotifcations.setWorkID(id: "worknot \(date)")
-                    //print("\(String(describing: tnotifcations.worknotification.identifier))")
-                    NSUserNotificationCenter.default.deliver(tnotifcations.worknotification)
+                if (notificationsEnabled){
+                    notificationCenter.add(tnotifcations.requestForWorkNotirication()) { err in
+                        guard err == nil else {
+                            return
+                        }
+                    }
                 }
                 tmode = !tmode
                 resetBtn(self)

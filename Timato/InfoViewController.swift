@@ -16,12 +16,18 @@ class InfoViewController: NSViewController {
     }
     
     @IBAction func gitHyperLink(_ sender: Any) {
-        let url = URL(string: "https://github.com/RaffaeleNachos/Timato")!
-        NSWorkspace.shared.open(url)
+        if let url = URL(string: "https://github.com/RaffaeleNachos/Timato"){
+            NSWorkspace.shared.open(url)
+        } else {
+            NSLog("Impossible to parse URL")
+        }
     }
     
     @IBAction func paypalDonate(_ sender: Any) {
-        let url = URL(string: "https://paypal.me/RApetino")!
-        NSWorkspace.shared.open(url)
+        if let url = URL(string: "https://paypal.me/RApetino"){
+            NSWorkspace.shared.open(url)
+        } else {
+            NSLog("Impossible to parse URL")
+        }
     }
 }

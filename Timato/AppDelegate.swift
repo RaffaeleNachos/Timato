@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import UserNotifications
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate{
@@ -22,18 +23,20 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-          button.image = NSImage(named:NSImage.Name("TimatoStatusBarIcon"))
-          button.action = #selector(togglePopover(_:))
+            button.image = NSImage(named:NSImage.Name("TimatoStatusBarIcon"))
+            button.action = #selector(togglePopover(_:))
         }
         popover.contentViewController = TimatoViewController.freshController()
         
         //creo istanza event monitor che cattura i click del mouse
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) {
-            [weak self] event in
-            if let strongSelf = self, strongSelf.popover.isShown {
+        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
+            if let strongSelf = self,
+               strongSelf.popover.isShown {
                     strongSelf.closePopover(sender: event)
             }
         }
+        
+        UNUserNotificationCenter.current().delegate = self
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -51,16 +54,26 @@ class AppDelegate: NSObject, NSApplicationDelegate{
 
     func showPopover(sender: Any?) {
         if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
         //lancio l'event monitor che cattura se si clicca con il mouse
-        eventMonitor?.start()
+        if let eventMonitor = eventMonitor {
+            eventMonitor.start()
+        }
     }
 
     func closePopover(sender: Any?) {
-        popover.performClose(sender)
+        self.popover.close()
         //ovviamente quando il popover è chiuso termino l'event monitoring
-        eventMonitor?.start()
+        if let eventMonitor = eventMonitor {
+            eventMonitor.stop()
+        }
     }
 
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        return completionHandler([.alert, .badge, .sound])
+    }
 }

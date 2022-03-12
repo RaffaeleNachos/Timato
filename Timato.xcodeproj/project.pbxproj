@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D00883D27DCB36900FA7EE9 /* TimatoUIEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00883C27DCB36900FA7EE9 /* TimatoUIEffects.swift */; };
 		6D277C272416646C00B8B593 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D277C262416646C00B8B593 /* SettingsViewController.swift */; };
 		6D277C292417B00D00B8B593 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D277C282417B00D00B8B593 /* InfoViewController.swift */; };
 		6D31C05C241FC8620037757A /* TimatoNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D31C05B241FC8620037757A /* TimatoNotifications.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D00883C27DCB36900FA7EE9 /* TimatoUIEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimatoUIEffects.swift; sourceTree = "<group>"; };
 		6D277C262416646C00B8B593 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6D277C282417B00D00B8B593 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		6D31C05B241FC8620037757A /* TimatoNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimatoNotifications.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				6DD5DCFD23EDB1910070CFB3 /* AppDelegate.swift */,
 				6D31C05B241FC8620037757A /* TimatoNotifications.swift */,
 				6D4B516F2427EA810041E472 /* EventMonitor.swift */,
+				6D00883C27DCB36900FA7EE9 /* TimatoUIEffects.swift */,
 				6DEC71392405357A001A7312 /* Assets.xcassets */,
 				6DD5DD0323EDB1920070CFB3 /* Main.storyboard */,
 				6DD5DD0623EDB1920070CFB3 /* Info.plist */,
@@ -150,6 +153,7 @@
 				6D277C292417B00D00B8B593 /* InfoViewController.swift in Sources */,
 				6D4B51702427EA810041E472 /* EventMonitor.swift in Sources */,
 				6D277C272416646C00B8B593 /* SettingsViewController.swift in Sources */,
+				6D00883D27DCB36900FA7EE9 /* TimatoUIEffects.swift in Sources */,
 				6D31C05C241FC8620037757A /* TimatoNotifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,13 +292,13 @@
 				CODE_SIGN_ENTITLEMENTS = Timato/Timato.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				INFOPLIST_FILE = Timato/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RaffaeleNachos.Timato;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -309,13 +313,13 @@
 				CODE_SIGN_ENTITLEMENTS = Timato/Timato.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				INFOPLIST_FILE = Timato/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RaffaeleNachos.Timato;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,28 +7,31 @@
 //
 
 import Cocoa
+import UserNotifications
 
 class TimatoNotifications {
     
-    let worknotification = NSUserNotification()
-    let restnotification = NSUserNotification()
+    let trigger : UNTimeIntervalNotificationTrigger
+    let worknotification = UNMutableNotificationContent()
+    let restnotification = UNMutableNotificationContent()
     
     init(){
+        trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
         
         worknotification.title = "Timato"
         worknotification.subtitle = "Hey! You must work NOW!"
-        worknotification.soundName = NSUserNotificationDefaultSoundName
+        worknotification.sound = UNNotificationSound.default
         
         restnotification.title = "Timato"
         restnotification.subtitle = "Hey! You can have a nap :)"
-        restnotification.soundName = NSUserNotificationDefaultSoundName
+        restnotification.sound = UNNotificationSound.default
     }
     
-    func setWorkID(id: String){
-        worknotification.identifier = id
+    func requestForWorkNotirication() -> UNNotificationRequest{
+        return UNNotificationRequest(identifier: UUID().uuidString, content: worknotification, trigger: trigger)
     }
     
-    func setRestID(id: String){
-         restnotification.identifier = id
+    func requestForRestNotirication() -> UNNotificationRequest{
+        return UNNotificationRequest(identifier: UUID().uuidString, content: restnotification, trigger: trigger)
     }
 }
