@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6D00883D27DCB36900FA7EE9 /* TimatoUIEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00883C27DCB36900FA7EE9 /* TimatoUIEffects.swift */; };
+		6D0088A227E3B8E300FA7EE9 /* TimatoWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6D0088A127E3B8E300FA7EE9 /* TimatoWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6D0088A827E3B8E300FA7EE9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0088A627E3B8E300FA7EE9 /* Interface.storyboard */; };
+		6D0088AA27E3B8E600FA7EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D0088A927E3B8E600FA7EE9 /* Assets.xcassets */; };
+		6D0088B027E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6D0088AF27E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6D0088B527E3B8E700FA7EE9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0088B427E3B8E700FA7EE9 /* InterfaceController.swift */; };
+		6D0088B727E3B8E700FA7EE9 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0088B627E3B8E700FA7EE9 /* ExtensionDelegate.swift */; };
+		6D0088B927E3B8E700FA7EE9 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0088B827E3B8E700FA7EE9 /* NotificationController.swift */; };
+		6D0088BB27E3B8E700FA7EE9 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0088BA27E3B8E700FA7EE9 /* ComplicationController.swift */; };
+		6D0088BD27E3B8EA00FA7EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D0088BC27E3B8EA00FA7EE9 /* Assets.xcassets */; };
 		6D277C272416646C00B8B593 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D277C262416646C00B8B593 /* SettingsViewController.swift */; };
 		6D277C292417B00D00B8B593 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D277C282417B00D00B8B593 /* InfoViewController.swift */; };
 		6D31C05C241FC8620037757A /* TimatoNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D31C05B241FC8620037757A /* TimatoNotifications.swift */; };
@@ -18,8 +27,62 @@
 		6DEC713A2405357A001A7312 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DEC71392405357A001A7312 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6D0088A327E3B8E300FA7EE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DD5DCF223EDB1910070CFB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D0088A027E3B8E300FA7EE9;
+			remoteInfo = "TimatoWatch WatchKit App";
+		};
+		6D0088B127E3B8E700FA7EE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DD5DCF223EDB1910070CFB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D0088AE27E3B8E700FA7EE9;
+			remoteInfo = "TimatoWatch WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6D0088C227E3B8EA00FA7EE9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6D0088A227E3B8E300FA7EE9 /* TimatoWatch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D0088C527E3B8EA00FA7EE9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6D0088B027E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6D00883C27DCB36900FA7EE9 /* TimatoUIEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimatoUIEffects.swift; sourceTree = "<group>"; };
+		6D00889E27E3B8E200FA7EE9 /* TimatoWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimatoWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D0088A127E3B8E300FA7EE9 /* TimatoWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TimatoWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D0088A727E3B8E300FA7EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		6D0088A927E3B8E600FA7EE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D0088AF27E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TimatoWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D0088B427E3B8E700FA7EE9 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		6D0088B627E3B8E700FA7EE9 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		6D0088B827E3B8E700FA7EE9 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		6D0088BA27E3B8E700FA7EE9 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		6D0088BC27E3B8EA00FA7EE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D0088BE27E3B8EA00FA7EE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D0088BF27E3B8EA00FA7EE9 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		6D277C262416646C00B8B593 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6D277C282417B00D00B8B593 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		6D31C05B241FC8620037757A /* TimatoNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimatoNotifications.swift; sourceTree = "<group>"; };
@@ -34,6 +97,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6D0088AC27E3B8E700FA7EE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6DD5DCF723EDB1910070CFB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,10 +114,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D0088A527E3B8E300FA7EE9 /* TimatoWatch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				6D0088A627E3B8E300FA7EE9 /* Interface.storyboard */,
+				6D0088A927E3B8E600FA7EE9 /* Assets.xcassets */,
+			);
+			path = "TimatoWatch WatchKit App";
+			sourceTree = "<group>";
+		};
+		6D0088B327E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6D0088B427E3B8E700FA7EE9 /* InterfaceController.swift */,
+				6D0088B627E3B8E700FA7EE9 /* ExtensionDelegate.swift */,
+				6D0088B827E3B8E700FA7EE9 /* NotificationController.swift */,
+				6D0088BA27E3B8E700FA7EE9 /* ComplicationController.swift */,
+				6D0088BC27E3B8EA00FA7EE9 /* Assets.xcassets */,
+				6D0088BE27E3B8EA00FA7EE9 /* Info.plist */,
+				6D0088BF27E3B8EA00FA7EE9 /* PushNotificationPayload.apns */,
+			);
+			path = "TimatoWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
 		6DD5DCF123EDB1910070CFB3 = {
 			isa = PBXGroup;
 			children = (
 				6DD5DCFC23EDB1910070CFB3 /* Timato */,
+				6D0088A527E3B8E300FA7EE9 /* TimatoWatch WatchKit App */,
+				6D0088B327E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension */,
 				6DD5DCFB23EDB1910070CFB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				6DD5DCFA23EDB1910070CFB3 /* Timato.app */,
+				6D00889E27E3B8E200FA7EE9 /* TimatoWatch.app */,
+				6D0088A127E3B8E300FA7EE9 /* TimatoWatch WatchKit App.app */,
+				6D0088AF27E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +179,57 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6D00889D27E3B8E200FA7EE9 /* TimatoWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D0088CA27E3B8EA00FA7EE9 /* Build configuration list for PBXNativeTarget "TimatoWatch" */;
+			buildPhases = (
+				6D00889C27E3B8E200FA7EE9 /* Resources */,
+				6D0088C227E3B8EA00FA7EE9 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D0088A427E3B8E300FA7EE9 /* PBXTargetDependency */,
+			);
+			name = TimatoWatch;
+			productName = TimatoWatch;
+			productReference = 6D00889E27E3B8E200FA7EE9 /* TimatoWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		6D0088A027E3B8E300FA7EE9 /* TimatoWatch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D0088C927E3B8EA00FA7EE9 /* Build configuration list for PBXNativeTarget "TimatoWatch WatchKit App" */;
+			buildPhases = (
+				6D00889F27E3B8E300FA7EE9 /* Resources */,
+				6D0088C527E3B8EA00FA7EE9 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D0088B227E3B8E700FA7EE9 /* PBXTargetDependency */,
+			);
+			name = "TimatoWatch WatchKit App";
+			productName = "TimatoWatch WatchKit App";
+			productReference = 6D0088A127E3B8E300FA7EE9 /* TimatoWatch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		6D0088AE27E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D0088C827E3B8EA00FA7EE9 /* Build configuration list for PBXNativeTarget "TimatoWatch WatchKit Extension" */;
+			buildPhases = (
+				6D0088AB27E3B8E700FA7EE9 /* Sources */,
+				6D0088AC27E3B8E700FA7EE9 /* Frameworks */,
+				6D0088AD27E3B8E700FA7EE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TimatoWatch WatchKit Extension";
+			productName = "TimatoWatch WatchKit Extension";
+			productReference = 6D0088AF27E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		6DD5DCF923EDB1910070CFB3 /* Timato */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6DD5DD0A23EDB1920070CFB3 /* Build configuration list for PBXNativeTarget "Timato" */;
@@ -104,10 +253,19 @@
 		6DD5DCF223EDB1910070CFB3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Raffaele Apetino";
 				TargetAttributes = {
+					6D00889D27E3B8E200FA7EE9 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					6D0088A027E3B8E300FA7EE9 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					6D0088AE27E3B8E700FA7EE9 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					6DD5DCF923EDB1910070CFB3 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -127,11 +285,38 @@
 			projectRoot = "";
 			targets = (
 				6DD5DCF923EDB1910070CFB3 /* Timato */,
+				6D00889D27E3B8E200FA7EE9 /* TimatoWatch */,
+				6D0088A027E3B8E300FA7EE9 /* TimatoWatch WatchKit App */,
+				6D0088AE27E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6D00889C27E3B8E200FA7EE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D00889F27E3B8E300FA7EE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D0088AA27E3B8E600FA7EE9 /* Assets.xcassets in Resources */,
+				6D0088A827E3B8E300FA7EE9 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D0088AD27E3B8E700FA7EE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D0088BD27E3B8EA00FA7EE9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6DD5DCF823EDB1910070CFB3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,6 +329,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6D0088AB27E3B8E700FA7EE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D0088B927E3B8E700FA7EE9 /* NotificationController.swift in Sources */,
+				6D0088BB27E3B8E700FA7EE9 /* ComplicationController.swift in Sources */,
+				6D0088B727E3B8E700FA7EE9 /* ExtensionDelegate.swift in Sources */,
+				6D0088B527E3B8E700FA7EE9 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6DD5DCF623EDB1910070CFB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,7 +356,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6D0088A427E3B8E300FA7EE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D0088A027E3B8E300FA7EE9 /* TimatoWatch WatchKit App */;
+			targetProxy = 6D0088A327E3B8E300FA7EE9 /* PBXContainerItemProxy */;
+		};
+		6D0088B227E3B8E700FA7EE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D0088AE27E3B8E700FA7EE9 /* TimatoWatch WatchKit Extension */;
+			targetProxy = 6D0088B127E3B8E700FA7EE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		6D0088A627E3B8E300FA7EE9 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D0088A727E3B8E300FA7EE9 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		6DD5DD0323EDB1920070CFB3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -172,6 +389,161 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6D0088C027E3B8EA00FA7EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F9WTZMSNBH;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TimatoWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6D0088C127E3B8EA00FA7EE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F9WTZMSNBH;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TimatoWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6D0088C327E3B8EA00FA7EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F9WTZMSNBH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = TimatoWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "TimatoWatch WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TimatoWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		6D0088C427E3B8EA00FA7EE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F9WTZMSNBH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = TimatoWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "TimatoWatch WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TimatoWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
+		6D0088C627E3B8EA00FA7EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F9WTZMSNBH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TimatoWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "TimatoWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Raffaele Apetino. All rights reserved.";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TimatoWatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		6D0088C727E3B8EA00FA7EE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F9WTZMSNBH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TimatoWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "TimatoWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Raffaele Apetino. All rights reserved.";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TimatoWatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
 		6DD5DD0823EDB1920070CFB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -198,6 +570,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -258,6 +631,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -290,6 +664,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Timato/Timato.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
@@ -311,6 +686,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Timato/Timato.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
@@ -330,6 +706,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6D0088C827E3B8EA00FA7EE9 /* Build configuration list for PBXNativeTarget "TimatoWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D0088C627E3B8EA00FA7EE9 /* Debug */,
+				6D0088C727E3B8EA00FA7EE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D0088C927E3B8EA00FA7EE9 /* Build configuration list for PBXNativeTarget "TimatoWatch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D0088C327E3B8EA00FA7EE9 /* Debug */,
+				6D0088C427E3B8EA00FA7EE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D0088CA27E3B8EA00FA7EE9 /* Build configuration list for PBXNativeTarget "TimatoWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D0088C027E3B8EA00FA7EE9 /* Debug */,
+				6D0088C127E3B8EA00FA7EE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6DD5DCF523EDB1910070CFB3 /* Build configuration list for PBXProject "Timato" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
